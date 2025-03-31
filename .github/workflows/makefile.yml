@@ -5,21 +5,13 @@ on:
     
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
       - name: Configure Git
         run: |
           git config --global user.name "Don"
           git config --global user.email "3293994697@gmail.com"
-      - name: Install dependencies
-        run: |
-          sudo apt update && sudo apt upgrade -y
-          sudo apt install -y python3 git curl lld llvm libelf-dev dwarves
-      - name: Install repo tool
-        run: |
-          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
-          chmod a+x ~/repo
-          sudo mv ~/repo /usr/local/bin/repo
+
       - name: Initialize repo and sync
         run: |
           mkdir kernel_workspace && cd kernel_workspace
