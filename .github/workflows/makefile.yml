@@ -7,9 +7,11 @@ jobs:
   build:
     runs-on: self-hosted
 
+    steps:  # <-- 这里必须有 `steps`
       - name: Configure Git
         run: |
           git config --global user.name "Don"
+
           git config --global user.email "3293994697@gmail.com"
 
       - name: Initialize repo and sync
